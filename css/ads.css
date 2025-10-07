@@ -1,0 +1,23 @@
+/* Leaderboard */
+.ad-leaderboard { width: 728px; height: 90px; min-height: 90px; contain: layout; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); margin: 0 auto; position: relative; border-radius: 8px; }
+@media (max-width: 768px) { .ad-leaderboard { width: 320px; height: 50px; min-height: 50px; } }
+
+/* Native card */
+.ad-native { width: 300px; height: 250px; min-height: 250px; contain: layout; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; position: relative; margin: 0 auto; }
+
+/* Sticky bottom */
+.ad-sticky { position: fixed; bottom: 0; left: 0; right: 0; width: 320px; height: 50px; min-height: 50px; margin: 0 auto; background: rgba(0,0,0,0.9); z-index: 1000; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+body.has-sticky-ad { padding-bottom: 70px; }
+
+/* Interstitial */
+.interstitial-ad { background: rgba(0,0,0,.7); }
+.interstitial-content { width: min(640px, 94%); padding: 0; position: relative; }
+.interstitial-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; }
+.close-btn { background: rgba(255,255,255,0.15); border: 0; color: #fff; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+/* Shimmer loader */
+.ad-loading::before { content: 'Ad Loading...'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); animation: shimmer 2s infinite; font-size: 12px; color: #aaa; }
+@keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+/* Generic ad slot safeguard */
+.ad-slot { min-height: 50px; }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiLinkPad Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/neon.css">
+  <link rel="stylesheet" href="css/ads.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1 class="neon-glow">Admin Dashboard</h1>
+      <p class="subtitle">Metrics and toggles</p>
+    </header>
+
+    <section class="glass-card">
+      <div class="kpis">
+        <div class="kpi-card"><h3>Total Revenue</h3><p id="kpi-revenue">$0.00</p></div>
+        <div class="kpi-card"><h3>Impressions</h3><p id="kpi-impressions">0</p></div>
+        <div class="kpi-card"><h3>CTR</h3><p id="kpi-ctr">0%</p></div>
+        <div class="kpi-card"><h3>RPM</h3><p id="kpi-rpm">$0.00</p></div>
+      </div>
+      <canvas id="revenueChart" height="100"></canvas>
+    </section>
+
+    <section class="glass-card">
+      <h2>Ad Controls</h2>
+      <label class="toggle-label"><input type="checkbox" id="toggle-leaderboard" checked><span class="toggle-switch"></span> Leaderboard</label>
+      <label class="toggle-label"><input type="checkbox" id="toggle-native" checked><span class="toggle-switch"></span> Native</label>
+      <label class="toggle-label"><input type="checkbox" id="toggle-interstitial" checked><span class="toggle-switch"></span> Interstitial</label>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script>
+    // Minimal chart init placeholder
+    const ctx = document.getElementById('revenueChart');
+    if (ctx && window.Chart) {
+      new Chart(ctx, { type: 'line', data: { labels: [], datasets: [{ label: 'Revenue', data: [] }] }, options: {} });
+    }
+  </script>
+</body>
+</html>

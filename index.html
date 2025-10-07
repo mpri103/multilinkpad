@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiLinkPad - Share Multiple Links</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/neon.css">
+  <link rel="stylesheet" href="css/ads.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="ad-container-top">
+    <div id="ad-leaderboard" class="ad-leaderboard ad-slot ad-loading" data-slot="leaderboard" data-lazy="true"></div>
+  </div>
+
+  <main class="container">
+    <header class="hero">
+      <h1 class="neon-glow">MultiLink<span class="highlight">Pad</span></h1>
+      <p class="subtitle">Share multiple links in one futuristic pad</p>
+    </header>
+
+    <section class="create-pad glass-card">
+      <div class="form-group">
+        <label for="urls-input">Paste Your URLs (one per line)</label>
+        <textarea id="urls-input" rows="10" placeholder="https://example.com
+https://another-link.com
+https://third-link.com"></textarea>
+        <p id="urls-error" class="error-text" style="display:none;"></p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="title-input">Title (optional)</label>
+          <input type="text" id="title-input" placeholder="My Link Collection" maxlength="120">
+        </div>
+
+        <div class="form-group">
+          <label for="expiration-select">Expires In</label>
+          <select id="expiration-select">
+            <option value="never">Never</option>
+            <option value="1h">1 Hour</option>
+            <option value="24h">24 Hours</option>
+            <option value="7d">7 Days</option>
+            <option value="30d">30 Days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description-input">Description (optional)</label>
+        <textarea id="description-input" rows="3" placeholder="Describe your collection..." maxlength="300"></textarea>
+      </div>
+
+      <div class="form-options">
+        <label class="checkbox-label">
+          <input type="checkbox" id="password-checkbox">
+          <span>Password Protect</span>
+        </label>
+
+        <label class="toggle-label">
+          <input type="checkbox" id="monetize-checkbox" checked>
+          <span class="toggle-switch"></span>
+          <span>Enable Ads (Support Free Service)</span>
+        </label>
+      </div>
+
+      <div id="password-group" class="form-group" style="display:none;">
+        <label for="password-input">Password</label>
+        <input type="password" id="password-input" placeholder="Enter password" maxlength="128">
+      </div>
+
+<button id="create-btn" type="button" class="btn-primary btn-large">
+        <span class="btn-text">Create Share Link</span>
+        <span class="btn-loading" style="display:none;">
+          <span class="spinner"></span> Creating...
+        </span>
+      </button>
+    </section>
+  </main>
+
+  <div id="success-modal" class="modal" style="display:none;">
+    <div class="modal-content glass-card">
+      <div class="modal-icon success">✓</div>
+      <h2>Share Link Created!</h2>
+      <div class="share-link-box">
+        <input type="text" id="share-link" readonly>
+        <button id="copy-share-link-btn">Copy</button>
+      </div>
+      <div class="social-share">
+        <a id="share-whatsapp" class="btn-social whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a id="share-twitter" class="btn-social twitter" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a id="share-facebook" class="btn-social facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+      <button id="success-close-btn" class="btn-secondary">Close</button>
+    </div>
+  </div>
+
+  <div id="gdpr-modal" class="modal" style="display:none;">
+    <div class="modal-content glass-card">
+      <h2>Cookie Consent</h2>
+      <p>We use cookies for ads and analytics. Your data is protected.</p>
+      <div class="consent-options">
+        <label>
+          <input type="checkbox" id="consent-ads" checked> Personalized Ads
+        </label>
+        <label>
+          <input type="checkbox" id="consent-analytics" checked> Analytics
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="gdpr-accept" class="btn-primary">Accept All</button>
+        <button id="gdpr-reject" class="btn-secondary">Reject All</button>
+      </div>
+      <a href="privacy.html" class="link-small">Privacy Policy</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 MultiLinkPad | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/gdpr.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/create-pad.js"></script>
+</body>
+</html>

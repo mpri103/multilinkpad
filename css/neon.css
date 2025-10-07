@@ -1,0 +1,8 @@
+.neon-glow { text-shadow: var(--glow-cyan); animation: flicker 3s infinite; }
+@keyframes flicker { 0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; } 20%, 24%, 55% { opacity: .85; } }
+
+/* Buttons subtle neon border */
+.btn-primary { box-shadow: 0 0 12px rgba(255, 0, 110, .35), 0 0 20px rgba(0, 245, 255, .2) inset; }
+
+/* Link card hover glow */
+.link-card:hover { box-shadow: 0 0 22px rgba(0, 245, 255, 0.5); }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">MultiLinkPad</title>
+  <meta name="description" id="page-description" content="Shared link collection">
+  <meta property="og:title" id="og-title" content="MultiLinkPad">
+  <meta property="og:description" id="og-description" content="Shared link collection">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/neon.css">
+  <link rel="stylesheet" href="css/ads.css">
+</head>
+<body class="share-page">
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="ad-container-top">
+    <div id="ad-leaderboard" class="ad-leaderboard ad-slot ad-loading" data-slot="leaderboard" data-lazy="true"></div>
+  </div>
+
+  <main class="container">
+    <div id="loading-screen" class="loading-screen">
+      <div class="spinner-large"></div>
+      <p>Loading pad...</p>
+    </div>
+
+    <div id="content" style="display:none;">
+      <header class="pad-header glass-card">
+        <h1 id="pad-title" class="neon-glow"></h1>
+        <p id="pad-description" class="pad-description"></p>
+        <div class="pad-actions">
+          <button id="copy-all-btn" class="btn-secondary">Copy All</button>
+          <button id="open-all-btn" class="btn-primary">Open All</button>
+        </div>
+      </header>
+
+      <div id="links-grid" class="links-grid"></div>
+    </div>
+
+    <div id="error-screen" class="error-screen" style="display:none;">
+      <div class="glass-card text-center">
+        <div class="error-icon">⚠️</div>
+        <h2 id="error-title">Oops!</h2>
+        <p id="error-message">Something went wrong</p>
+        <a href="/" class="btn-primary">Create Your Own Pad</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="password-modal" class="modal" style="display:none;">
+    <div class="modal-content glass-card">
+      <div class="modal-icon lock">🔒</div>
+      <h2>This Pad is Protected</h2>
+      <p>Enter password to unlock</p>
+      <form id="password-form">
+        <input type="password" id="password-verify" placeholder="Enter password" required>
+        <button type="submit" class="btn-primary">Unlock</button>
+      </form>
+      <p id="password-error" class="error-text" style="display:none;"></p>
+    </div>
+  </div>
+
+  <div id="interstitial-modal" class="modal interstitial-ad" style="display:none;">
+    <div class="interstitial-content glass-card">
+      <div class="interstitial-header">
+        <span class="ad-label">Advertisement</span>
+        <button id="interstitial-close" class="close-btn" disabled><span id="close-timer">5</span> ✕</button>
+      </div>
+      <div id="ad-interstitial" class="ad-interstitial-slot ad-slot ad-loading" data-slot="interstitial" data-lazy="false"></div>
+    </div>
+  </div>
+
+  <div id="sticky-ad-container" class="sticky-ad-container" style="display:none;">
+    <button class="sticky-ad-close" id="sticky-ad-close">✕</button>
+    <div id="ad-sticky" class="ad-sticky ad-slot ad-loading" data-slot="sticky" data-lazy="true"></div>
+  </div>
+
+  <div id="adblocker-modal" class="modal" style="display:none;">
+    <div class="modal-content glass-card">
+      <div class="modal-icon">🚫</div>
+      <h2>Ad Blocker Detected</h2>
+      <p>Please consider disabling your ad blocker to support our free service.</p>
+      <p class="small-text">Alternatively, upgrade to <a href="#">Premium</a> for an ad-free experience.</p>
+      <button id="adblocker-continue" class="btn-secondary">Continue Anyway</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 MultiLinkPad | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/view-pad.js"></script>
+</body>
+</html>
