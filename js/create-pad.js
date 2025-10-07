@@ -63,7 +63,8 @@ async function createPad() {
 function showSuccessModal(shortId) {
   const modal = document.getElementById('success-modal'); if (!modal) return;
   const shareInput = document.getElementById('share-link');
-  const linkUrl = `${CONFIG.SITE_ORIGIN}/share.html?id=${encodeURIComponent(shortId)}`;
+  const base = typeof getBaseUrl === 'function' ? getBaseUrl() : CONFIG.SITE_ORIGIN;
+  const linkUrl = `${base.replace(/\/$/, '')}/share.html?id=${encodeURIComponent(shortId)}`;
   shareInput.value = linkUrl;
   modal.style.display = 'flex';
   modal.classList.add('show');

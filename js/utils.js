@@ -54,6 +54,19 @@ function isMobile() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+function getBaseUrl() {
+  try {
+    const origin = window.location.origin;
+    const path = window.location.pathname;
+    // For GitHub Pages: /repo-name/index.html -> /repo-name/
+    // For root hosting: /index.html -> /
+    const parts = path.split('/');
+    parts.pop(); // Remove filename
+    const dir = parts.join('/') || '/';
+    return origin + dir;
+  } catch { return (CONFIG && CONFIG.SITE_ORIGIN) || ''; }
+}
+
 async function hashIP() {
   // Lightweight IP hash (client-side). In production consider better privacy.
   try {
